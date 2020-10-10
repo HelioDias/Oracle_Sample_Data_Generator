@@ -1,0 +1,5 @@
+CREATE TABLE MILLION_BY_HOUR AS
+select sysdate-rownum/24 EG_DATE,
+       trunc(dbms_random.value(1,100000)) EG_VALUE 
+from dual
+cascade connect by level<1000001;
